@@ -1,0 +1,81 @@
+/* Contenedor principal del mensaje de idioma seleccionado */
+.news-language-message {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Contenedor de paginación */
+.news-pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Botones de paginación */
+.news-pagination-button {
+  margin: 5px;
+  padding: 10px;
+  background-color: #ccc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Botón de paginación activo */
+.news-pagination-button.active {
+  background-color: #007bff;
+}
+
+/* Mensaje de carga */
+.news-loading-message {
+  text-align: center;
+  margin-top: 20px;
+  color: blue;
+}
+
+/* Mensaje de error */
+.news-error-message {
+  text-align: center;
+  margin-top: 20px;
+  color: red;
+}
+
+/* Contenedor de noticias */
+.news-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+/* Imagen de la noticia */
+.news-image {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+/* Contenedor de texto de la noticia */
+.news-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.news-content h2 {
+  margin: 0 0 10px;
+}
+
+.news-content p {
+  margin: 5px 0;
+}
+
+.news-content a {
+  color: #007bff;
+  text-decoration: none;
+}
