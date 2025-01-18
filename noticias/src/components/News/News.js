@@ -78,14 +78,15 @@ const News = () => {
   return (
     <div>
       <Navbar
-        onSearch={(term, lang) => {
-          setQuery(term || "breaking news");
-          setLanguage(lang);
-        }}
-        onFilterLanguage={(lang) => {
-          setLanguage((prevLang) => (prevLang === lang ? "" : lang));
-        }}
-      />
+  onSearch={(term, lang) => {
+    setQuery(term || "breaking news");
+    setLanguage(lang);
+  }}
+  onFilterLanguage={(lang) => {
+    setLanguage(lang); // Actualiza el idioma en el estado
+  }}
+/>
+
 
       <div className="news-language-message">
         {language

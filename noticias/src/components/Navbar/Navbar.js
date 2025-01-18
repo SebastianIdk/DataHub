@@ -13,25 +13,24 @@ const LANGUAGES = [
   { code: "zh", label: "Chino", flag: "/static/flags/zh.png" },
 ];
 
-const Navbar = ({ onSearch, onFilterLanguage }) => {
+const Navbar = ({ showSearch = true, showLanguages = true, onFilterLanguage }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedLanguage, setSelectedLanguage] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleSearch = (e) => {
     e.preventDefault();
-    onSearch(searchTerm, selectedLanguage);
-  };
-
-  const handleLanguageChange = (language) => {
-    const newLanguage = selectedLanguage === language ? "" : language;
-    setSelectedLanguage(newLanguage);
-    setSearchTerm(""); // Limpia la búsqueda actual al cambiar el idioma
-    onFilterLanguage(newLanguage);
+    console.log("Searching:", searchTerm); // Placeholder para la búsqueda
   };
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const handleLanguageChange = (langCode) => {
+    const newLanguage = selectedLanguage === langCode ? "" : langCode;
+    setSelectedLanguage(newLanguage);
+    onFilterLanguage(newLanguage); // Llama a la función pasada como prop
   };
 
   return (
@@ -43,7 +42,6 @@ const Navbar = ({ onSearch, onFilterLanguage }) => {
         </button>
       </div>
 
-      {/* Menú desplegable */}
       {menuOpen && (
         <div className="navbar-menu">
           <Link to="/" className="navbar-menu-item">
@@ -56,38 +54,40 @@ const Navbar = ({ onSearch, onFilterLanguage }) => {
       )}
 
       <div className="navbar-right">
-        {/* Formulario de búsqueda */}
-        <form onSubmit={handleSearch} className="navbar-search-form">
-          <input
-            type="text"
-            placeholder="Buscar tema..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="navbar-search-input"
-          />
-          <button type="submit" className="navbar-search-button">
-            Buscar
-          </button>
-        </form>
-
-        {/* Lista de idiomas */}
-        <div className="navbar-languages">
-          {LANGUAGES.map((lang) => (
-            <button
-              key={lang.code}
-              onClick={() => handleLanguageChange(lang.code)}
-              className={`navbar-language-button ${
-                selectedLanguage === lang.code ? "selected" : ""
-              }`}
-            >
-              <img
-                src={lang.flag}
-                alt={lang.label}
-                className="navbar-language-img"
-              />
+        {showSearch && (
+          <form onSubmit={handleSearch} className="navbar-search-form">
+            <input
+              type="text"
+              placeholder="Buscar tema..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="navbar-search-input"
+            />
+            <button type="submit" className="navbar-search-button">
+              Buscar
             </button>
-          ))}
-        </div>
+          </form>
+        )}
+
+        {showLanguages && (
+          <div className="navbar-languages">
+            {LANGUAGES.map((lang) => (
+              <button
+                key={lang.code}
+                className={`navbar-language-button ${
+                  selectedLanguage === lang.code ? "selected" : ""
+                }`}
+                onClick={() => handleLanguageChange(lang.code)} // Cambia el idioma aquí
+              >
+                <img
+                  src={lang.flag}
+                  alt={lang.label}
+                  className="navbar-language-img"
+                />
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </nav>
   );
