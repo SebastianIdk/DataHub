@@ -81,9 +81,10 @@ const News = () => {
         onSearch={(term, lang) => {
           setQuery(term || "breaking news");
           setLanguage(lang);
+          fetchNews(); // Actualizar noticias inmediatamente después de la búsqueda
         }}
         onFilterLanguage={(lang) => {
-          setLanguage((prevLang) => (prevLang === lang ? "" : lang));
+          setLanguage(lang); // Actualiza el idioma en el estado
         }}
       />
 

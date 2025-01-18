@@ -1,14 +1,135 @@
+/* Resetear márgenes y paddings del body */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+  background-color: #f4f6f9; /* Fondo claro para toda la app */
+}
+
+/* Contenedor principal de la página */
+.weather-page {
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  background-color: #f4f6f9;
+}
+
+/* Estilo principal del navbar */
+.navbar {
+  margin: 0;
+  padding: 15px 20px;
+  background-color: #1b1f3a; /* Fondo azul oscuro */
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* Contenedor principal del clima */
 .weather-container {
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .weather-container h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .weather-container p {
-    font-size: 16px;
-  }
-  
+  text-align: center;
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Título del clima */
+.weather-container h1 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #333;
+}
+
+/* Barra de búsqueda */
+.search-bar {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.search-bar input {
+  padding: 10px;
+  font-size: 16px;
+  width: 70%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.search-bar input:focus {
+  border-color: #007bff; /* Color del borde al enfocar */
+}
+
+.search-bar button {
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+  background-color: #0056b3; /* Color al pasar el mouse */
+}
+
+/* Información del clima */
+.weather-info {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.weather-info h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.weather-info p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.weather-info img {
+  width: 80px;
+  height: 80px;
+  margin-top: 10px;
+}
+
+/* Mensaje de error */
+.error {
+  color: #d9534f; 
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Fondos dinámicos basados en el clima */
+.clear-background {
+  background-color: #87ceeb; /* Cielo claro */
+  background-image: linear-gradient(to bottom, #87ceeb, #f0f8ff);
+}
+
+.rainy-background {
+  background-color: #778899; /* Fondo lluvioso */
+  background-image: linear-gradient(to bottom, #778899, #b0c4de);
+}
+
+/* Reset para todos los elementos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

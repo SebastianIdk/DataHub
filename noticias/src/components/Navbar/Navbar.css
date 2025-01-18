@@ -1,12 +1,13 @@
 /* Estilo principal del navbar */
 .navbar {
-  padding: 10px;
-  background-color: #007bff;
+  padding: 15px 20px;
+  background-color: #1b1f3a; /* Azul oscuro */
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Contenedor de los elementos del lado izquierdo */
@@ -17,7 +18,10 @@
 
 /* Título principal del navbar */
 .navbar-left h2 {
-  margin-right: 15px;
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #f8f9fa;
 }
 
 /* Botón del menú desplegable */
@@ -32,87 +36,100 @@
 /* Contenedor del menú desplegable */
 .navbar-menu {
   position: absolute;
-  top: 50px;
+  top: 60px;
   left: 10px;
   background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   padding: 10px;
   z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Elementos del menú desplegable */
 .navbar-menu-item {
   display: block;
-  padding: 10px;
+  padding: 10px 15px;
   color: #007bff;
   text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
-/* Efecto hover para los elementos del menú */
 .navbar-menu-item:hover {
-  background-color: #f0f0f0;
+  background-color: #f8f9fa;
+  border-radius: 5px;
 }
 
 /* Contenedor de los elementos del lado derecho */
 .navbar-right {
   display: flex;
   align-items: center;
+  gap: 15px;
 }
 
 /* Formulario de búsqueda */
 .navbar-search-form {
   display: flex;
-  margin-right: 15px;
+  gap: 10px;
 }
 
-/* Input del formulario de búsqueda */
 .navbar-search-input {
-  padding: 5px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  margin-right: 5px;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
 }
 
-/* Botón del formulario de búsqueda */
+.navbar-search-input:focus {
+  border-color: #007bff;
+}
+
 .navbar-search-button {
-  padding: 5px 10px;
-  background-color: #0056b3;
+  padding: 8px 15px;
+  font-size: 14px;
+  font-weight: bold;
   color: white;
+  background-color: #007bff;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-search-button:hover {
+  background-color: #0056b3;
 }
 
 /* Contenedor de los idiomas */
 .navbar-languages {
   display: flex;
   gap: 10px;
-  align-items: center;
 }
 
 /* Botones de idioma */
 .navbar-language-button {
-  padding: 5px;
-  border: 1px solid #ccc;
+  width: 40px;
+  height: 30px;
+  border: 1px solid transparent;
   background-color: transparent;
+  border-radius: 6px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 30px;
+  transition: all 0.3s ease;
 }
 
-/* Botón de idioma seleccionado */
-.navbar-language-button.selected {
-  border: 2px solid white;
-  background-color: #0056b3;
-}
-
-/* Imagen dentro del botón de idioma */
-.navbar-language-img {
+.navbar-language-button img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 4px;
+}
+
+.navbar-language-button.selected {
+  border: 2px solid white;
+  background-color: #0056b3;
 }
