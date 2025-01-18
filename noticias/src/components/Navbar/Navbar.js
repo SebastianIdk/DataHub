@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Para manejar las rutas
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const LANGUAGES = [
@@ -13,24 +13,29 @@ const LANGUAGES = [
   { code: "zh", label: "Chino", flag: "/static/flags/zh.png" },
 ];
 
-const Navbar = ({ showSearch = true, showLanguages = true, onFilterLanguage }) => {
+const Navbar = ({
+  showSearch = true,
+  showLanguages = true,
+  onSearch,
+  onFilterLanguage,
+}) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedLanguage, setSelectedLanguage] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleSearch = (e) => {
     e.preventDefault();
-    console.log("Searching:", searchTerm); // Placeholder para la búsqueda
-  };
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+    onSearch(searchTerm, selectedLanguage); // Pasar término de búsqueda y lenguaje seleccionado
   };
 
   const handleLanguageChange = (langCode) => {
     const newLanguage = selectedLanguage === langCode ? "" : langCode;
     setSelectedLanguage(newLanguage);
-    onFilterLanguage(newLanguage); // Llama a la función pasada como prop
+    onFilterLanguage(newLanguage);
+  };
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
   };
 
   return (
@@ -77,7 +82,7 @@ const Navbar = ({ showSearch = true, showLanguages = true, onFilterLanguage }) =
                 className={`navbar-language-button ${
                   selectedLanguage === lang.code ? "selected" : ""
                 }`}
-                onClick={() => handleLanguageChange(lang.code)} // Cambia el idioma aquí
+                onClick={() => handleLanguageChange(lang.code)}
               >
                 <img
                   src={lang.flag}
