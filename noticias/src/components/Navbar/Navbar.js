@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./Navbar.css"; // Importar los estilos
+import { Link } from "react-router-dom"; // Para manejar las rutas
+import "./Navbar.css";
 
 const LANGUAGES = [
   { code: "es", label: "Español", flag: "/static/flags/es.png" },
@@ -15,6 +16,7 @@ const LANGUAGES = [
 const Navbar = ({ onSearch, onFilterLanguage }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedLanguage, setSelectedLanguage] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -28,10 +30,32 @@ const Navbar = ({ onSearch, onFilterLanguage }) => {
     onFilterLanguage(newLanguage);
   };
 
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <nav className="navbar">
-      <h2>News App</h2>
-      <div className="navbar">
+      <div className="navbar-left">
+        <h2>DataHub</h2>
+        <button className="navbar-menu-button" onClick={toggleMenu}>
+          ☰
+        </button>
+      </div>
+
+      {/* Menú desplegable */}
+      {menuOpen && (
+        <div className="navbar-menu">
+          <Link to="/" className="navbar-menu-item">
+            Noticias
+          </Link>
+          <Link to="/weather" className="navbar-menu-item">
+            Clima
+          </Link>
+        </div>
+      )}
+
+      <div className="navbar-right">
         {/* Formulario de búsqueda */}
         <form onSubmit={handleSearch} className="navbar-search-form">
           <input

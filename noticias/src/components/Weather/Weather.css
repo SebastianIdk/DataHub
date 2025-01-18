@@ -1,0 +1,14 @@
+.weather-container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .weather-container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .weather-container p {
+    font-size: 16px;
+  }
+  
